@@ -3,10 +3,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # initialize pico-sdk from GIT
 # (note this can come from environment, CMake cache etc)
-
-# XXX: not happy this is ../../ as only works with CMakePresets.json
-set(PICO_SDK_PATH ../../pico-sdk)  
 set(PICO_SDK_FETCH_FROM_GIT off)
+set(PICO_SDK_PATH ${CMAKE_SOURCE_DIR}/pico-sdk)  
 
 # pico_sdk_import.cmake is a single file copied from this SDK
 # note: this must happen before project()
