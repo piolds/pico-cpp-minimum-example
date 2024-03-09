@@ -7,3 +7,5 @@ build_outputs/
 .vimspector.json
 tags
 .vim/
+
+flash.sh
