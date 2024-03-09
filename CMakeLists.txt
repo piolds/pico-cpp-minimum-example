@@ -8,7 +8,7 @@ set(PICO_SDK_PATH ${CMAKE_SOURCE_DIR}/pico-sdk)
 
 # pico_sdk_import.cmake is a single file copied from this SDK
 # note: this must happen before project()
-include(pico_sdk_import.cmake)
+include(cmake/pico_sdk_import.cmake)
 
 project(pico_cpp_example C CXX ASM)
 
