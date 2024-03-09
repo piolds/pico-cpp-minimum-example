@@ -1,0 +1,9 @@
+
+# ignore build folder
+build_outputs/
+
+# vim-related
+.gadgets.json
+.vimspector.json
+tags
+.vim/
