@@ -2,11 +2,21 @@
     "version": 6,
     "configurePresets": [
         {
+            "name": "cross-debug",
+            "binaryDir": "${sourceDir}/build_outputs/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_FLAGS_DEBUG": "-Og -g",
+                "CMAKE_CROSSCOMPILING": "true"
+            }
+        },
+        {
             "name": "debug",
             "binaryDir": "${sourceDir}/build_outputs/debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_CXX_FLAGS_DEBUG": "-Og -g"
+                "CMAKE_CXX_FLAGS_DEBUG": "-Og -g",
+                "CMAKE_CROSSCOMPILING": "false"
             }
         },
         {
@@ -18,6 +28,14 @@
         }
     ],
     "buildPresets": [
+        {
+            "name": "cross-debug",
+            "configurePreset": "cross-debug",
+            "jobs": 19,
+            "targets": [
+                "all"
+            ]
+        },
         {
             "name": "debug",
             "configurePreset": "debug",
@@ -49,6 +67,19 @@
                 {
                     "type": "build",
                     "name": "debug"
+                }
+            ]
+        },
+        {
+            "name": "cross-debug",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "cross-debug"
+                },
+                {
+                    "type": "build",
+                    "name": "cross-debug"
                 }
             ]
         },
