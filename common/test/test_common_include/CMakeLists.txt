@@ -6,6 +6,7 @@ add_executable(${PROJECT_NAME} ${SourceFiles})
 
 target_link_libraries(${PROJECT_NAME}   
     SSD1306
+    CMSISDSP
     common_include
     gtest
     gtest_main

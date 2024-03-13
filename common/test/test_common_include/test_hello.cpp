@@ -2,6 +2,7 @@
 #include "gtest/gtest.h"
 #include "Graphic.h"
 #include "hello.h"
+#include <dsp/basic_math_functions.h>
 
 
 TEST(a, b) { ASSERT_EQ(returnHello(), "hello"); }
@@ -10,4 +11,17 @@ TEST(b, c) {
     unsigned char* buf;
     auto g = SSD1306::Graphic(buf, 1, 2);
     std::cout << g.getHeight();
+}
+
+TEST(dsp, arm_add_f32) {
+    float32_t first[4] = {1, 2, 5, 7};
+    float32_t second[4] = {1, 2, 3, 10};
+    float32_t result[4] = {};
+    float32_t expectedResult[4] = {2, 4, 8, 17};
+
+    arm_add_f32(first, second, result, 4);
+
+    for (int i = 0; i < 4; i++) {
+        ASSERT_EQ(result[i], expectedResult[i]);
+    }
 }
