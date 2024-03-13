@@ -32,9 +32,11 @@ if (NOT CMAKE_CROSSCOMPILING)
     add_subdirectory(${CMAKE_SOURCE_DIR}/thirdparty/googletest)
     include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-    add_subdirectory(${CMAKE_SOURCE_DIR}/thirdparty/ssd1306)
-    include_directories(${PROJECT_NAME} ${ssd1306Dir})
 endif()
+
+add_subdirectory(${CMAKE_SOURCE_DIR}/thirdparty/ssd1306)
+include_directories(${PROJECT_NAME} ${ssd1306Dir})
+
 set(CMSISCORE ${CMAKE_SOURCE_DIR}/thirdparty/cmsis_core/Core)
 add_subdirectory(${CMAKE_SOURCE_DIR}/thirdparty/CMSIS-DSP)
 include_directories(${PROJECT_NAME} ${CMSISDSP})
