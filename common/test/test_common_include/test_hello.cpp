@@ -1,9 +1,10 @@
-#include "gmock/gmock.h"
-#include "gtest/gtest.h"
-#include "Graphic.h"
-#include "hello.h"
+#include <Graphic.h>
 #include <dsp/basic_math_functions.h>
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 
+#include "hello.h"
+#include "sub.h"
 
 TEST(a, b) { ASSERT_EQ(returnHello(), "hello"); }
 
@@ -25,3 +26,18 @@ TEST(dsp, arm_add_f32) {
         ASSERT_EQ(result[i], expectedResult[i]);
     }
 }
+
+TEST(I2C, hello_i2c_stub) {
+    static constexpr char* message = "hello world";
+    auto main = MainDevice{};
+    auto sub = SubDevice{};
+
+    main.registerSubDevice(&sub);
+    sub.registerMainDevice(&main);
+
+    Config c{0x1, 2};
+    main.send(c, message, 4);
+
+    ASSERT_EQ(sub.getBuffer(), message);
+}
+
