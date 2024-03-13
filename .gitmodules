@@ -4,12 +4,12 @@
 [submodule "thirdparty/googletest"]
 	path = thirdparty/googletest
 	url = https://github.com/google/googletest.git
-[submodule "thirdparty/ssd1306"]
-	path = thirdparty/ssd1306
-	url = https://github.com/EinarArnason/ssd1306.git
 [submodule "thirdparty/CMSIS-DSP"]
 	path = thirdparty/CMSIS-DSP
 	url = https://github.com/ARM-software/CMSIS-DSP.git
 [submodule "thirdparty/cmsis_core"]
 	path = thirdparty/cmsis_core
 	url = https://github.com/STMicroelectronics/cmsis_core.git
+[submodule "thirdparty/ssd1306"]
+	path = thirdparty/ssd1306
+	url = https://github.com/piolds/ssd1306.git
