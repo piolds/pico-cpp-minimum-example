@@ -9,3 +9,6 @@ tags
 .vim/
 
 flash.sh
+
+# ignore datasheets
+datasheets/
