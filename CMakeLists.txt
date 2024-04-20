@@ -8,6 +8,8 @@ set(PICO_SDK_PATH ${CMAKE_SOURCE_DIR}/thirdparty/pico-sdk)
 
 
 if (CMAKE_CROSSCOMPILING)
+
+    set(PICO_BOARD pico_w)
     # pico_sdk_import.cmake is a single file copied from this SDK 
     # NOTE: this must happen before project()
     include(cmake/pico_sdk_import.cmake)
@@ -21,7 +23,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/common/include)
-add_subdirectory(common)
+#add_subdirectory(common)
 
 if (CMAKE_CROSSCOMPILING)
     add_subdirectory(src)
